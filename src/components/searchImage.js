@@ -1,3 +1,8 @@
+/** Определяем количество галерей с фотографиями
+ * и количество фотографий в галереях
+ * результат формируется в массив массивов
+ * this.arrGallary
+ */
 
 class SearchImage {
     constructor() {
@@ -11,6 +16,8 @@ class SearchImage {
         let numberGal = 0;
         let numberFalse = 0;
         let quantity = 0;
+
+        if (this.arrGallary.length > 0) return this.arrGallary;
 
         while (result2) {
             result = true;
@@ -38,7 +45,7 @@ class SearchImage {
                 console.log(numberGal + ' <== GALLARY ' + quantity + ' <== IMAGE in gallary');// test
                 ++numberGal;
             }
-        }
+        } // second WHILE end
     }
 
 }

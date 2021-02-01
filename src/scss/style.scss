@@ -1,12 +1,90 @@
+@import './variables';
+body {
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+}
+
 .preview {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    border: 1px solid inherit;
+    box-sizing: border-box;
     transition: 0.5s;
     cursor: pointer;
 }
 
 .preview:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: 0.5s;
+}
+
+.main {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    &__left {
+        width: 42%;
+        min-height: 100vh;
+        background-color: $black;
+    }
+    &__right {
+        width: 58%;
+        min-height: 100vh;
+        background-color: $yellow;
+    }
+}
+
+.one_width {
+    width: $one_width;
+}
+
+.two_width {
+    width: $two_width;
+}
+
+.text_block {
+    padding: 10px;
+    & h3 {
+        text-transform: uppercase;
+        color: $color_text;
+    }
+    & p {
+        font-size: 14px;
+        color: $color_text;
+    }
+}
+
+.left_block {
+    width: 100%;
+    margin: 100px 0 0 0;
+    display: flex;
+    justify-content: flex-end;
+    box-sizing: border-box;
+}
+
+.right_block {
+    width: 100%;
+    margin: 100px 0 0 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.main__right_one {
+    width: $two_width;
+    height: $two_height;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.main__right_two {
+    width: $two_width;
+    height: $two_height;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
