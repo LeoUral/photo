@@ -6,10 +6,7 @@ export default class Main extends React.Component {
 
     defineNumberImage(numberGallary) {
         // numberGallary = '0' //test -> номер галереи
-        SearchImage.searchGallary(numberGallary);
-        setTimeout(() => {
-            console.log(SearchImage.quantity + ' <= RESULT');// test -> количество файлов в галерее
-        }, 100);
+        SearchImage.searchGallary();
     }
 
     componentDidMount() {
