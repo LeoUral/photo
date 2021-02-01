@@ -3,9 +3,19 @@ import Preview from './Preview';
 import SearchImage from './searchImage';
 
 export default class Main extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            foto: [] // массив с количеством галерей и фото в них
+        }
+    }
 
     defineNumberImage() {
         SearchImage.searchGallary();
+        setTimeout(() => {
+            this.setState({ foto: SearchImage.arrGallary });
+            console.log(this.state.foto + ' < GET 1 sec');
+        }, 1000)
     }
 
     componentDidMount() {
@@ -14,18 +24,18 @@ export default class Main extends React.Component {
 
     render() {
 
-        const widthOne = '150px';
-        const widthTwo = '300px';
-        const heightOne = '150px';
-        const heightTwo = '300px';
+        const widthOne = '149px';
+        const widthTwo = '299px';
+        const heightOne = '149px';
+        const heightTwo = '299px';
 
         return (
             <>
                 <main className="main">
                     <section className="main__left">
                         <div className="left_block">
-                            <div className="main__left_one">
-                                icons
+                            <div className="main__left_one one_width">
+                                <div className="block_icon">&#9675;</div>
                             </div>
                             <div className="main__left_two one_width">
                                 <div className="text_block">

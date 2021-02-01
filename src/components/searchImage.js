@@ -42,10 +42,11 @@ class SearchImage {
                 console.log(this.arrGallary + ' < RESULT RUN SEARCH GALLARY end IMAGE'); // test
             } else {
                 this.arrGallary = [...this.arrGallary, [numberGal, quantity]];
-                console.log(numberGal + ' <== GALLARY ' + quantity + ' <== IMAGE in gallary');// test
+                console.log(numberGal + ' <== GALLARY ' + quantity + ' <== IMAGE in gallary');// test                
                 ++numberGal;
             }
         } // second WHILE end
+        return this.arrGallary;
     }
 
 }
