@@ -4,6 +4,7 @@
  * this.arrGallary
  */
 
+
 class SearchImage {
     constructor() {
         this.size = 1798;
@@ -46,6 +47,7 @@ class SearchImage {
                 ++numberGal;
             }
         } // second WHILE end
+
         return this.arrGallary;
     }
 

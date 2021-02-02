@@ -15,6 +15,7 @@ export default class Main extends React.Component {
         setTimeout(() => {
             this.setState({ foto: SearchImage.arrGallary });
             console.log(this.state.foto + ' < GET 1 sec');
+            console.log(this.state.foto[0]);
         }, 1000)
     }
 
@@ -28,6 +29,7 @@ export default class Main extends React.Component {
         const widthTwo = '299px';
         const heightOne = '149px';
         const heightTwo = '299px';
+        const gallary = this.state.foto;
 
         return (
             <>
@@ -48,11 +50,13 @@ export default class Main extends React.Component {
                                 <Preview
                                     width={widthOne}
                                     height={heightOne}
+                                    gallary={gallary[0]}
                                     url={'../image/gal_0/img_0.jpg'}
                                 />
                                 <Preview
                                     width={widthOne}
                                     height={heightTwo}
+                                    gallary={gallary[1]}
                                     url={'../image/gal_1/img_0.jpg'}
                                 />
                             </div>
@@ -64,26 +68,31 @@ export default class Main extends React.Component {
                                 <Preview
                                     width={widthOne}
                                     height={heightOne}
+                                    gallary={gallary[2]}
                                     url={'../image/gal_2/img_0.jpg'}
                                 />
                                 <Preview
                                     width={widthOne}
                                     height={heightOne}
+                                    gallary={gallary[3]}
                                     url={'../image/gal_3/img_0.jpg'}
                                 />
                                 <Preview
                                     width={widthOne}
                                     height={heightTwo}
+                                    gallary={gallary[4]}
                                     url={'../image/gal_4/img_0.jpg'}
                                 />
                                 <Preview
                                     width={widthOne}
                                     height={heightOne}
+                                    gallary={gallary[5]}
                                     url={'../image/gal_5/img_0.jpg'}
                                 />
                                 <Preview
                                     width={widthOne}
                                     height={heightOne}
+                                    gallary={gallary[6]}
                                     url={'../image/gal_7/img_0.jpg'}
                                 />
                             </div>
@@ -92,11 +101,13 @@ export default class Main extends React.Component {
                                 <Preview
                                     width={widthTwo}
                                     height={heightTwo}
+                                    gallary={gallary[7]}
                                     url={'../image/gal_6/img_0.jpg'}
                                 />
                                 <Preview
                                     width={widthOne}
                                     height={heightOne}
+                                    gallary={gallary[8]}
                                     url={'../image/gal_8/img_0.jpg'}
                                 />
                             </div>
