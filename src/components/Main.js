@@ -8,15 +8,103 @@ export default class Main extends React.Component {
         this.state = {
             foto: [] // массив с количеством галерей и фото в них
         }
+        this.buildView = this.buildView.bind(this);
     }
 
     defineNumberImage() {
         SearchImage.searchGallary();
         setTimeout(() => {
             this.setState({ foto: SearchImage.arrGallary });
-            console.log(this.state.foto + ' < GET 1 sec');
-            console.log(this.state.foto[0]);
         }, 1000)
+    }
+
+    buildView(data) {
+
+        this.viewerBlockOne = [];
+        this.viewerBlockTwo = [];
+        this.viewerBlockThree = [];
+
+        const widthOne = '149px';
+        const widthTwo = '299px';
+        const heightOne = '149px';
+        const heightTwo = '299px';
+        const gallary = data;
+
+        for (let i = 0; i < data.length; i++) {
+            switch (i % 10) {
+                case 0:
+                    this.viewerBlockOne.push(
+                        <Preview
+                            key={i}
+                            width={widthOne}
+                            height={heightOne}
+                            gallary={gallary[i]}
+                            url={`../image/gal_${i}/img_0.jpg`}
+                        />
+                    );
+                    break;
+                case 1:
+                    this.viewerBlockOne.push(
+                        <Preview
+                            key={i}
+                            width={widthOne}
+                            height={heightTwo}
+                            gallary={gallary[i]}
+                            url={`../image/gal_${i}/img_0.jpg`}
+                        />
+                    );
+                    break;
+                case 2:
+                case 3:
+                case 5:
+                case 6:
+                    this.viewerBlockTwo.push(
+                        <Preview
+                            key={i}
+                            width={widthOne}
+                            height={heightOne}
+                            gallary={gallary[i]}
+                            url={`../image/gal_${i}/img_0.jpg`}
+                        />
+                    );
+                    break;
+                case 4:
+                    this.viewerBlockTwo.push(
+                        <Preview
+                            key={i}
+                            width={widthOne}
+                            height={heightTwo}
+                            gallary={gallary[i]}
+                            url={`../image/gal_${i}/img_0.jpg`}
+                        />
+                    );
+                    break;
+                case 7:
+                    this.viewerBlockThree.push(
+                        <Preview
+                            key={i}
+                            width={widthTwo}
+                            height={heightTwo}
+                            gallary={gallary[i]}
+                            url={`../image/gal_${i}/img_0.jpg`}
+                        />
+                    );
+                    break;
+                case 8:
+                case 9:
+                    this.viewerBlockThree.push(
+                        <Preview
+                            key={i}
+                            width={widthOne}
+                            height={heightOne}
+                            gallary={gallary[i]}
+                            url={`../image/gal_${i}/img_0.jpg`}
+                        />
+                    );
+                    break;
+                default: console.log('END');
+            }
+        }
     }
 
     componentDidMount() {
@@ -25,11 +113,7 @@ export default class Main extends React.Component {
 
     render() {
 
-        const widthOne = '149px';
-        const widthTwo = '299px';
-        const heightOne = '149px';
-        const heightTwo = '299px';
-        const gallary = this.state.foto;
+        this.buildView(this.state.foto);
 
         return (
             <>
@@ -47,69 +131,17 @@ export default class Main extends React.Component {
                                 </div>
                             </div>
                             <div className="main__left_three one_width">
-                                <Preview
-                                    width={widthOne}
-                                    height={heightOne}
-                                    gallary={gallary[0]}
-                                    url={'../image/gal_0/img_0.jpg'}
-                                />
-                                <Preview
-                                    width={widthOne}
-                                    height={heightTwo}
-                                    gallary={gallary[1]}
-                                    url={'../image/gal_1/img_0.jpg'}
-                                />
+                                {this.viewerBlockOne}
                             </div>
                         </div>
                     </section>
                     <section className="main__right">
                         <div className="right_block">
                             <div className="main__right_one two_width">
-                                <Preview
-                                    width={widthOne}
-                                    height={heightOne}
-                                    gallary={gallary[2]}
-                                    url={'../image/gal_2/img_0.jpg'}
-                                />
-                                <Preview
-                                    width={widthOne}
-                                    height={heightOne}
-                                    gallary={gallary[3]}
-                                    url={'../image/gal_3/img_0.jpg'}
-                                />
-                                <Preview
-                                    width={widthOne}
-                                    height={heightTwo}
-                                    gallary={gallary[4]}
-                                    url={'../image/gal_4/img_0.jpg'}
-                                />
-                                <Preview
-                                    width={widthOne}
-                                    height={heightOne}
-                                    gallary={gallary[5]}
-                                    url={'../image/gal_5/img_0.jpg'}
-                                />
-                                <Preview
-                                    width={widthOne}
-                                    height={heightOne}
-                                    gallary={gallary[6]}
-                                    url={'../image/gal_7/img_0.jpg'}
-                                />
+                                {this.viewerBlockTwo}
                             </div>
                             <div className="main__right_two one_width">
-
-                                <Preview
-                                    width={widthTwo}
-                                    height={heightTwo}
-                                    gallary={gallary[7]}
-                                    url={'../image/gal_6/img_0.jpg'}
-                                />
-                                <Preview
-                                    width={widthOne}
-                                    height={heightOne}
-                                    gallary={gallary[8]}
-                                    url={'../image/gal_8/img_0.jpg'}
-                                />
+                                {this.viewerBlockThree}
                             </div>
                         </div>
                     </section>
