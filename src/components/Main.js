@@ -6,9 +6,11 @@ export default class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            foto: [] // массив с количеством галерей и фото в них
+            foto: [] // массив с количеством галерей и фото в них  
         }
+
         this.buildView = this.buildView.bind(this);
+        this.changeHeightView = this.changeHeightView.bind(this);
     }
 
     defineNumberImage() {
@@ -16,6 +18,19 @@ export default class Main extends React.Component {
         setTimeout(() => {
             this.setState({ foto: SearchImage.arrGallary });
         }, 1000)
+
+    }
+
+    changeHeightView(data) {
+        this.heightNew = '300px';
+        this.heightNew2 = '300px';
+
+        if (data.length > 10) {
+            this.heightNew = '600px';
+        }
+        if (data.length > 17) {
+            this.heightNew2 = '450px';
+        }
     }
 
     buildView(data) {
@@ -29,6 +44,8 @@ export default class Main extends React.Component {
         const heightOne = '149px';
         const heightTwo = '299px';
         const gallary = data;
+
+        this.changeHeightView(data);
 
         for (let i = 0; i < data.length; i++) {
             switch (i % 10) {
@@ -84,7 +101,7 @@ export default class Main extends React.Component {
                         <Preview
                             key={i}
                             width={widthTwo}
-                            height={heightTwo}
+                            height={heightOne}
                             gallary={gallary[i]}
                             url={`../image/gal_${i}/img_0.jpg`}
                         />
@@ -111,9 +128,12 @@ export default class Main extends React.Component {
         this.defineNumberImage();
     }
 
+
     render() {
 
         this.buildView(this.state.foto);
+        const heightNew = this.heightNew;
+        const heightNew2 = this.heightNew2;
 
         return (
             <>
@@ -134,16 +154,18 @@ export default class Main extends React.Component {
                                 {this.viewerBlockOne}
                             </div>
                         </div>
+                        <footer className="footer"></footer>
                     </section>
                     <section className="main__right">
                         <div className="right_block">
-                            <div className="main__right_one two_width">
+                            <div className="main__right_one two_width" style={{ height: `${heightNew}` }}>
                                 {this.viewerBlockTwo}
                             </div>
-                            <div className="main__right_two one_width">
+                            <div className="main__right_two one_width" style={{ height: `${heightNew2}` }}>
                                 {this.viewerBlockThree}
                             </div>
                         </div>
+                        <footer className="footer"></footer>
                     </section>
                 </main>
             </>
