@@ -25,10 +25,13 @@ export default class Main extends React.Component {
         this.heightNew = '300px';
         this.heightNew2 = '300px';
 
-        if (data.length > 10) {
+        if (data.length > 11) {
+            this.heightNew = '450px';
+        }
+        if (data.length > 15) {
             this.heightNew = '600px';
         }
-        if (data.length > 17) {
+        if (data.length > 18) {
             this.heightNew2 = '450px';
         }
     }
