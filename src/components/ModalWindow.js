@@ -4,9 +4,7 @@ import React from 'react';
 export default class ModalWindow extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            show: false
-        }
+
         this.handleClose = this.handleClose.bind(this);
         this.handleStepLeft = this.handleStepLeft.bind(this);
         this.handleStepRight = this.handleStepRight.bind(this);
@@ -14,30 +12,38 @@ export default class ModalWindow extends React.Component {
 
     handleStepLeft() {
         console.log('STEP LEFT');
-    }
-    handleStepRight() {
-        console.log('STEP RIGHT');
-    }
-    handleClose() {
-        console.log('CLOSE');
+        this.props.onStepLeft();
     }
 
+    handleStepRight() {
+        console.log('STEP RIGHT');
+        this.props.onStepRight();
+    }
+
+    handleClose() {
+        console.log('CLOSE');
+        this.props.onChangeShow();
+    }
+
+
     render() {
-        const i = 0;
-        const j = 0;
+
+        const i = this.props.numberGallary;
+        const j = this.props.numberImage;
         const url = `../image/gal_${i}/img_${j}.jpg`
-        const show = this.state.show;
+        const show = this.props.show;
+        console.log(this.props.show + ' <<< >>> ' + this.props.numberGallary + ' --- ' + this.props.numberImage);
 
         return (
             <>
                 <section className="modal" style={{ display: show ? 'block' : 'none' }}>
                     <div className="modal__shadow" onClick={this.handleClose}></div>
                     <div className="modal__window">
-                        <button className="btn--close" onClick={this.handleClose}> close </button>
+                        <button className="btn--close" onClick={this.handleClose}> 	&#10060; </button>
                         <div className="modal__block">
-                            <button className="btn--left" onClick={this.handleStepLeft}> left </button>
+                            <button className="btn--left" onClick={this.handleStepLeft}> &#9668; </button>
                             <div className="modal__image" style={{ backgroundImage: `url(${url})` }}></div>
-                            <button className="btn--right" onClick={this.handleStepRight}> right </button>
+                            <button className="btn--right" onClick={this.handleStepRight}> &#9658; </button>
                         </div>
                     </div>
                 </section>

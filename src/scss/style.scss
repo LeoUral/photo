@@ -1,4 +1,5 @@
 @import './variables';
+@import './animation';
 body {
     width: 100%;
     background-color: #000;
@@ -13,6 +14,7 @@ body {
     box-sizing: border-box;
     transition: 0.5s;
     cursor: pointer;
+    animation: demonstration 2s;
 }
 
 .preview:hover {
@@ -108,4 +110,112 @@ body {
 .footer {
     width: 100%;
     height: 100px;
+}
+
+.modal {
+    &__shadow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: $black;
+        opacity: 0.8;
+        z-index: 10;
+    }
+    &__window {
+        position: absolute;
+        width: 80%;
+        height: 78%;
+        margin: 100px auto;
+        background-color: #000;
+        opacity: 1;
+        z-index: 11;
+    }
+    &__block {
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        opacity: 1;
+    }
+    &__image {
+        width: 99%;
+        height: 99%;
+        margin: 6px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        animation: demonstration 2s;
+    }
+    .btn--close {
+        position: absolute;
+        top: -40px;
+        right: -40px;
+        width: 40px;
+        height: 40px;
+        background-color: #000;
+        border-radius: 50%;
+        border: none;
+        outline: inherit;
+        z-index: 12;
+        font-size: 20px;
+        color: $yellow;
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover {
+            background-color: $yellow;
+            color: #000;
+        }
+        &:active {
+            color: #fff;
+        }
+    }
+    .btn--left {
+        position: absolute;
+        top: 45%;
+        left: -75px;
+        width: 70px;
+        height: 70px;
+        background-color: #000;
+        border-radius: 50%;
+        border: none;
+        outline: inherit;
+        z-index: 12;
+        font-size: 30px;
+        color: $yellow;
+        transition: 0.5s;
+        cursor: pointer;
+        &:hover {
+            background-color: $yellow;
+            color: #000;
+            transition: 0.5s;
+        }
+        &:active {
+            color: #fff;
+        }
+    }
+    .btn--right {
+        position: absolute;
+        top: 45%;
+        right: -75px;
+        width: 70px;
+        height: 70px;
+        background-color: #000;
+        border-radius: 50%;
+        border: none;
+        outline: inherit;
+        z-index: 12;
+        font-size: 30px;
+        color: $yellow;
+        transition: 0.5s;
+        cursor: pointer;
+        &:hover {
+            background-color: $yellow;
+            color: #000;
+            transition: 0.5s;
+        }
+        &:active {
+            color: #fff;
+        }
+    }
 }

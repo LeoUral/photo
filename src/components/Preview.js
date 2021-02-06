@@ -2,10 +2,18 @@ import React from 'react';
 
 //Превью альбомов с фотографией
 export default class Preview extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.handleClickPreview = this.handleClickPreview.bind(this);
+    }
 
 
-    handleClick() {
-        console.log('Click');
+    handleClickPreview(e) {
+        console.log(e.target.dataset.gallary + ' < in PREVIEW '); // test
+        let gallary = e.target.dataset.gallary.split(',');
+        console.log(gallary);
+        this.props.onGetNumberGallary(gallary);
     }
 
     render() {
@@ -24,7 +32,7 @@ export default class Preview extends React.Component {
                         backgroundImage: `url(${url})`
                     }}
                     data-gallary={gallary}
-                    onClick={this.handleClick}
+                    onClick={this.handleClickPreview}
                 >
                 </div>
             </>

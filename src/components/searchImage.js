@@ -28,7 +28,7 @@ class SearchImage {
                 let response = await fetch(`../image/gal_${numberGal}/img_${quantity}.jpg`);
                 let blob = await response.blob();
 
-                console.log(blob.size); // test
+                // console.log(blob.size); // test
                 if (blob.size > this.size) {
                     ++quantity;
                     numberFalse = 0;
@@ -40,7 +40,7 @@ class SearchImage {
 
             if (numberFalse >= 2) {
                 result2 = false;
-                console.log(this.arrGallary + ' < RESULT RUN SEARCH GALLARY end IMAGE'); // test
+                console.log(this.arrGallary + ' < RESULT RUN SEARCH GALLARY end IMAGE'); // test                
             } else {
                 this.arrGallary = [...this.arrGallary, [numberGal, quantity]];
                 console.log(numberGal + ' <== GALLARY ' + quantity + ' <== IMAGE in gallary');// test                

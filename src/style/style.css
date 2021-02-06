@@ -1,3 +1,21 @@
+@-webkit-keyframes demonstration {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes demonstration {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 body {
   width: 100%;
   background-color: #000;
@@ -14,6 +32,8 @@ body {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   cursor: pointer;
+  -webkit-animation: demonstration 2s;
+          animation: demonstration 2s;
 }
 
 .preview:hover {
@@ -141,4 +161,128 @@ body {
 .footer {
   width: 100%;
   height: 100px;
+}
+
+.modal__shadow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #1e2124;
+  opacity: 0.8;
+  z-index: 10;
+}
+
+.modal__window {
+  position: absolute;
+  width: 80%;
+  height: 78%;
+  margin: 100px auto;
+  background-color: #000;
+  opacity: 1;
+  z-index: 11;
+}
+
+.modal__block {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 1;
+}
+
+.modal__image {
+  width: 99%;
+  height: 99%;
+  margin: 6px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-animation: demonstration 2s;
+          animation: demonstration 2s;
+}
+
+.modal .btn--close {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 40px;
+  height: 40px;
+  background-color: #000;
+  border-radius: 50%;
+  border: none;
+  outline: inherit;
+  z-index: 12;
+  font-size: 20px;
+  color: #f7b61e;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.modal .btn--close:hover {
+  background-color: #f7b61e;
+  color: #000;
+}
+
+.modal .btn--close:active {
+  color: #fff;
+}
+
+.modal .btn--left {
+  position: absolute;
+  top: 45%;
+  left: -75px;
+  width: 70px;
+  height: 70px;
+  background-color: #000;
+  border-radius: 50%;
+  border: none;
+  outline: inherit;
+  z-index: 12;
+  font-size: 30px;
+  color: #f7b61e;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.modal .btn--left:hover {
+  background-color: #f7b61e;
+  color: #000;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.modal .btn--left:active {
+  color: #fff;
+}
+
+.modal .btn--right {
+  position: absolute;
+  top: 45%;
+  right: -75px;
+  width: 70px;
+  height: 70px;
+  background-color: #000;
+  border-radius: 50%;
+  border: none;
+  outline: inherit;
+  z-index: 12;
+  font-size: 30px;
+  color: #f7b61e;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.modal .btn--right:hover {
+  background-color: #f7b61e;
+  color: #000;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.modal .btn--right:active {
+  color: #fff;
 }

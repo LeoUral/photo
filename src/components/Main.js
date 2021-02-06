@@ -1,4 +1,5 @@
 import React from 'react';
+import ModalWindow from './ModalWindow';
 import Preview from './Preview';
 import SearchImage from './searchImage';
 
@@ -6,18 +7,26 @@ export default class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            foto: [] // массив с количеством галерей и фото в них  
+            foto: [], // массив с количеством галерей и фото в них  
+            gallary: [], //выбранная галерея с фото
+            show: false,
+            numberFoto: 0 //номер текущего фото при просмотре
         }
 
         this.buildView = this.buildView.bind(this);
         this.changeHeightView = this.changeHeightView.bind(this);
+        this.getNumberGallary = this.getNumberGallary.bind(this);
+        this.changeShow = this.changeShow.bind(this);
+        this.doStepLeft = this.doStepLeft.bind(this);
+        this.doStepRight = this.doStepRight.bind(this);
     }
 
     defineNumberImage() {
         SearchImage.searchGallary();
+
         setTimeout(() => {
             this.setState({ foto: SearchImage.arrGallary });
-        }, 1000)
+        }, 5000)
 
     }
 
@@ -34,6 +43,39 @@ export default class Main extends React.Component {
         if (data.length > 18) {
             this.heightNew2 = '450px';
         }
+    }
+
+    getNumberGallary(gallary) {
+        this.setState({
+            gallary: gallary, //выбранная галерея с фото
+            show: true,
+            numberFoto: 0
+        })
+        console.log(gallary + ' < in MAIN'); //test            
+    }
+
+    changeShow() {
+        this.setState({
+            show: false
+        })
+    }
+
+    doStepLeft() {
+        if (this.state.numberFoto > 0) {
+            this.setState({
+                numberFoto: this.state.numberFoto - 1
+            })
+        }
+        console.log('left');//test
+    }
+
+    doStepRight() {
+        if (this.state.numberFoto < this.state.gallary[1] - 1) {
+            this.setState({
+                numberFoto: this.state.numberFoto + 1
+            })
+        }
+        console.log('right');//test
     }
 
     buildView(data) {
@@ -60,6 +102,8 @@ export default class Main extends React.Component {
                             height={heightOne}
                             gallary={gallary[i]}
                             url={`../image/gal_${i}/img_0.jpg`}
+                            onGetNumberGallary={this.getNumberGallary}
+
                         />
                     );
                     break;
@@ -71,6 +115,7 @@ export default class Main extends React.Component {
                             height={heightTwo}
                             gallary={gallary[i]}
                             url={`../image/gal_${i}/img_0.jpg`}
+                            onGetNumberGallary={this.getNumberGallary}
                         />
                     );
                     break;
@@ -85,6 +130,7 @@ export default class Main extends React.Component {
                             height={heightOne}
                             gallary={gallary[i]}
                             url={`../image/gal_${i}/img_0.jpg`}
+                            onGetNumberGallary={this.getNumberGallary}
                         />
                     );
                     break;
@@ -96,6 +142,7 @@ export default class Main extends React.Component {
                             height={heightTwo}
                             gallary={gallary[i]}
                             url={`../image/gal_${i}/img_0.jpg`}
+                            onGetNumberGallary={this.getNumberGallary}
                         />
                     );
                     break;
@@ -107,6 +154,7 @@ export default class Main extends React.Component {
                             height={heightOne}
                             gallary={gallary[i]}
                             url={`../image/gal_${i}/img_0.jpg`}
+                            onGetNumberGallary={this.getNumberGallary}
                         />
                     );
                     break;
@@ -119,6 +167,7 @@ export default class Main extends React.Component {
                             height={heightOne}
                             gallary={gallary[i]}
                             url={`../image/gal_${i}/img_0.jpg`}
+                            onGetNumberGallary={this.getNumberGallary}
                         />
                     );
                     break;
@@ -141,6 +190,14 @@ export default class Main extends React.Component {
         return (
             <>
                 <main className="main">
+                    <ModalWindow
+                        numberGallary={this.state.gallary[0]}
+                        numberImage={this.state.numberFoto}
+                        show={this.state.show}
+                        onChangeShow={this.changeShow}
+                        onStepLeft={this.doStepLeft}
+                        onStepRight={this.doStepRight}
+                    />
                     <section className="main__left">
                         <div className="left_block">
                             <div className="main__left_one one_width">
