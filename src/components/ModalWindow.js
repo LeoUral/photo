@@ -11,17 +11,17 @@ export default class ModalWindow extends React.Component {
     }
 
     handleStepLeft() {
-        console.log('STEP LEFT');
+
         this.props.onStepLeft();
     }
 
     handleStepRight() {
-        console.log('STEP RIGHT');
+
         this.props.onStepRight();
     }
 
     handleClose() {
-        console.log('CLOSE');
+
         this.props.onChangeShow();
     }
 
@@ -32,7 +32,7 @@ export default class ModalWindow extends React.Component {
         const j = this.props.numberImage;
         const url = `../image/gal_${i}/img_${j}.jpg`
         const show = this.props.show;
-        console.log(this.props.show + ' <<< >>> ' + this.props.numberGallary + ' --- ' + this.props.numberImage);
+        console.log(this.props.show + ' <<< >>> ' + this.props.numberGallary + ' --- ' + this.props.numberImage); //test
 
         return (
             <>

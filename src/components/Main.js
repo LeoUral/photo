@@ -21,14 +21,21 @@ export default class Main extends React.Component {
         this.doStepRight = this.doStepRight.bind(this);
     }
 
+    // получаем данные о количестве фотографий в галереях
     defineNumberImage() {
-        SearchImage.searchGallary();
-
-        setTimeout(() => {
-            this.setState({ foto: SearchImage.arrGallary });
-        }, 5000)
+        new Promise((resolve) => {
+            resolve(
+                this.search = SearchImage.searchGallary(),
+            )
+        })
+            .then(
+                result => this.setState({ foto: result }) //SearchImage.arrGallary  
+            )
 
     }
+
+
+
 
     changeHeightView(data) {
         this.heightNew = '300px';
