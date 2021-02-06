@@ -26,7 +26,7 @@ export default class Main extends React.Component {
     defineNumberImage() {
         new Promise((resolve) => {
             resolve(
-                this.search = SearchImage.searchGallary(),
+                this.search = SearchImage.searchGallary()
             )
         })
             .then(
