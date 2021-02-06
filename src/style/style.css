@@ -286,3 +286,12 @@ body {
 .modal .btn--right:active {
   color: #fff;
 }
+
+.wait {
+  width: 500px;
+  background-color: inherit;
+  color: #fff;
+  font-size: 40px;
+  -webkit-animation: demonstration 1s;
+          animation: demonstration 1s;
+}

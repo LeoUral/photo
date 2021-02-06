@@ -2,6 +2,7 @@ import React from 'react';
 import ModalWindow from './ModalWindow';
 import Preview from './Preview';
 import SearchImage from './searchImage';
+import WaitLoading from './WaitLoading';
 
 export default class Main extends React.Component {
     constructor(props) {
@@ -33,9 +34,6 @@ export default class Main extends React.Component {
             )
 
     }
-
-
-
 
     changeHeightView(data) {
         this.heightNew = '300px';
@@ -193,6 +191,7 @@ export default class Main extends React.Component {
         this.buildView(this.state.foto);
         const heightNew = this.heightNew;
         const heightNew2 = this.heightNew2;
+        const varLoad = 'LOADING please wait ... ';
 
         return (
             <>
@@ -215,6 +214,7 @@ export default class Main extends React.Component {
                                     <h3>foto</h3>
                                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sit, fugiat, soluta id totam illum, eveniet placeat reiciendis voluptate ea obcaecati magnam. Aut tempora nesciunt ut dolor odit tenetur modi, aliquid, similique incidunt non autem!</p>
                                     <div> ... </div>
+                                    {varLoad}
                                 </div>
                             </div>
                             <div className="main__left_three one_width">
@@ -226,7 +226,7 @@ export default class Main extends React.Component {
                     <section className="main__right">
                         <div className="right_block">
                             <div className="main__right_one two_width" style={{ height: `${heightNew}` }}>
-                                {this.viewerBlockTwo}
+                                {this.viewerBlockTwo.length > 0 ? this.viewerBlockTwo : <WaitLoading />}
                             </div>
                             <div className="main__right_two one_width" style={{ height: `${heightNew2}` }}>
                                 {this.viewerBlockThree}
