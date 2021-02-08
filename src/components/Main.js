@@ -30,7 +30,7 @@ export default class Main extends React.Component {
             )
         })
             .then(
-                result => this.setState({ foto: result }) //SearchImage.arrGallary  
+                result => this.setState({ foto: result }) //get SearchImage.arrGallary  
             )
 
     }
@@ -191,7 +191,6 @@ export default class Main extends React.Component {
         this.buildView(this.state.foto);
         const heightNew = this.heightNew;
         const heightNew2 = this.heightNew2;
-        const varLoad = 'LOADING please wait ... ';
 
         return (
             <>
@@ -214,7 +213,6 @@ export default class Main extends React.Component {
                                     <h3>foto</h3>
                                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sit, fugiat, soluta id totam illum, eveniet placeat reiciendis voluptate ea obcaecati magnam. Aut tempora nesciunt ut dolor odit tenetur modi, aliquid, similique incidunt non autem!</p>
                                     <div> ... </div>
-                                    {varLoad}
                                 </div>
                             </div>
                             <div className="main__left_three one_width">
