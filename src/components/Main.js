@@ -11,7 +11,8 @@ export default class Main extends React.Component {
             foto: [], // массив с количеством галерей и фото в них  
             gallary: [], //выбранная галерея с фото
             show: false,
-            numberFoto: 0 //номер текущего фото при просмотре
+            numberFoto: 0, //номер текущего фото при просмотре
+            linkPosition: 0 //позиция ссылки
         }
 
         this.buildView = this.buildView.bind(this);
@@ -21,6 +22,8 @@ export default class Main extends React.Component {
         this.doStepLeft = this.doStepLeft.bind(this);
         this.doStepRight = this.doStepRight.bind(this);
         this.handleChangeLink = this.handleChangeLink.bind(this);
+        this.viewChangeLink = this.viewChangeLink.bind(this);
+        this.handleOneButton = this.handleOneButton.bind(this);
     }
 
     // получаем данные о количестве фотографий в галереях
@@ -85,15 +88,38 @@ export default class Main extends React.Component {
     }
 
     handleChangeLink(e) {
-        let link = document.querySelectorAll('.link');
-        link.forEach((position) => {
+        const event = +e.target.dataset.link;
+        this.viewChangeLink(event);
+        this.setState({
+            linkPosition: event
+        })
+        setTimeout(() => {
+            console.log(this.state.linkPosition + ' < POSITION');
+        })
+    }
+
+    handleOneButton() {
+        this.position = this.state.linkPosition;
+
+        if (this.position < 2) {
+            this.position++;
+        } else {
+            this.position = 0;
+        }
+        this.viewChangeLink(this.position);
+        this.setState({
+            linkPosition: this.position
+        })
+    }
+
+    viewChangeLink(event) {
+        let pos = document.querySelectorAll('.link');
+        pos.forEach((position) => {
             position.classList.remove('active-link');
         })
-        // link[0].classList.remove('active-link');
-        // link[1].classList.remove('active-link');
-        // link[2].classList.remove('active-link');
-        e.target.classList.add('active-link');
+        pos[event].classList.add('active-link');
     }
+
 
     buildView(data) {
 
@@ -203,6 +229,14 @@ export default class Main extends React.Component {
         const heightNew = this.heightNew;
         const heightNew2 = this.heightNew2;
 
+        const i = this.state.linkPosition;
+        this.title0 = 'foto'
+        this.title1 = 'coments'
+        this.title2 = 'contact'
+        this.text0 = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nisi error magnam corrupti excepturi consectetur. Nostrum velit exercitationem quasi suscipit incidunt eaque pariatur mollitia. Esse tempora saepe blanditiis autem nam.'
+        this.text1 = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nisi error magnam corrupti excepturi '
+        this.text2 = 'my contacts'
+
         return (
             <>
                 <main className="main">
@@ -217,18 +251,19 @@ export default class Main extends React.Component {
                     <section className="main__left">
                         <div className="left_block">
                             <div className="main__left_one one_width">
-                                <div className="block_icon">&#9675;</div>
+                                <button className="block_icon" onClick={this.handleOneButton} > <span> &#9675; </span></button>
                             </div>
                             <div className="main__left_two one_width">
                                 <div className="text_block">
-                                    <h3>foto</h3>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sit, fugiat, soluta id totam illum, eveniet placeat reiciendis voluptate ea obcaecati magnam. Aut tempora nesciunt ut dolor odit tenetur modi, aliquid, similique incidunt non autem!</p>
-                                    <div className="links-block">
-                                        <button className="link" onClick={this.handleChangeLink}></button>
-                                        <button className="link" onClick={this.handleChangeLink}></button>
-                                        <button className="link" onClick={this.handleChangeLink}></button>
-                                    </div>
+                                    <h3>{i === 0 ? this.title0 : i === 1 ? this.title1 : this.title2}</h3>
+                                    <p>{i === 0 ? this.text0 : i === 1 ? this.text1 : this.text2}</p>
                                 </div>
+                                <div className="links-block">
+                                    <button className="link active-link" onClick={this.handleChangeLink} data-link="0"></button>
+                                    <button className="link" onClick={this.handleChangeLink} data-link="1"></button>
+                                    <button className="link" onClick={this.handleChangeLink} data-link="2"></button>
+                                </div>
+
                             </div>
                             <div className="main__left_three one_width">
                                 {this.viewerBlockOne}
