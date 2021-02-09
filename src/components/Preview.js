@@ -21,6 +21,7 @@ export default class Preview extends React.Component {
         const height = this.props.height;
         const url = this.props.url;
         const gallary = this.props.gallary;
+        const text = '';
 
         return (
             <>
@@ -34,6 +35,7 @@ export default class Preview extends React.Component {
                     data-gallary={gallary}
                     onClick={this.handleClickPreview}
                 >
+                    {text}
                 </div>
             </>
         )

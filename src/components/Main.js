@@ -20,6 +20,7 @@ export default class Main extends React.Component {
         this.changeShow = this.changeShow.bind(this);
         this.doStepLeft = this.doStepLeft.bind(this);
         this.doStepRight = this.doStepRight.bind(this);
+        this.handleChangeLink = this.handleChangeLink.bind(this);
     }
 
     // получаем данные о количестве фотографий в галереях
@@ -81,6 +82,17 @@ export default class Main extends React.Component {
             })
         }
         console.log('right');//test
+    }
+
+    handleChangeLink(e) {
+        let link = document.querySelectorAll('.link');
+        link.forEach((position) => {
+            position.classList.remove('active-link');
+        })
+        // link[0].classList.remove('active-link');
+        // link[1].classList.remove('active-link');
+        // link[2].classList.remove('active-link');
+        e.target.classList.add('active-link');
     }
 
     buildView(data) {
@@ -185,7 +197,6 @@ export default class Main extends React.Component {
         this.defineNumberImage();
     }
 
-
     render() {
 
         this.buildView(this.state.foto);
@@ -212,7 +223,11 @@ export default class Main extends React.Component {
                                 <div className="text_block">
                                     <h3>foto</h3>
                                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur sit, fugiat, soluta id totam illum, eveniet placeat reiciendis voluptate ea obcaecati magnam. Aut tempora nesciunt ut dolor odit tenetur modi, aliquid, similique incidunt non autem!</p>
-                                    <div> ... </div>
+                                    <div className="links-block">
+                                        <button className="link" onClick={this.handleChangeLink}></button>
+                                        <button className="link" onClick={this.handleChangeLink}></button>
+                                        <button className="link" onClick={this.handleChangeLink}></button>
+                                    </div>
                                 </div>
                             </div>
                             <div className="main__left_three one_width">
