@@ -3,7 +3,11 @@ import ModalWindow from './ModalWindow';
 import Preview from './Preview';
 import SearchImage from './searchImage';
 import WaitLoading from './WaitLoading';
+import Comments from './Comments';
+import Contact from './Contact';
 
+
+//пока основной компонент с мешаниной, позже разделю на компоненты
 export default class Main extends React.Component {
     constructor(props) {
         super(props);
@@ -231,7 +235,7 @@ export default class Main extends React.Component {
 
         const i = this.state.linkPosition;
         this.title0 = 'foto'
-        this.title1 = 'coments'
+        this.title1 = 'comments'
         this.title2 = 'contact'
         this.text0 = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nisi error magnam corrupti excepturi consectetur. Nostrum velit exercitationem quasi suscipit incidunt eaque pariatur mollitia. Esse tempora saepe blanditiis autem nam.'
         this.text1 = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nisi error magnam corrupti excepturi '
@@ -266,7 +270,7 @@ export default class Main extends React.Component {
 
                             </div>
                             <div className="main__left_three one_width">
-                                {this.viewerBlockOne}
+                                {i === 0 ? this.viewerBlockOne : i === 1 ? <Comments /> : <Contact />}
                             </div>
                         </div>
                         <footer className="footer"></footer>
@@ -274,10 +278,10 @@ export default class Main extends React.Component {
                     <section className="main__right">
                         <div className="right_block">
                             <div className="main__right_one two_width" style={{ height: `${heightNew}` }}>
-                                {this.viewerBlockTwo.length > 0 ? this.viewerBlockTwo : <WaitLoading />}
+                                {i === 2 ? <Contact /> : i === 1 ? <Comments /> : this.viewerBlockTwo.length > 0 ? this.viewerBlockTwo : <WaitLoading />}
                             </div>
                             <div className="main__right_two one_width" style={{ height: `${heightNew2}` }}>
-                                {this.viewerBlockThree}
+                                {i === 0 ? this.viewerBlockThree : i === 1 ? <Comments /> : <Contact />}
                             </div>
                         </div>
                         <footer className="footer"></footer>
