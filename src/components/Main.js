@@ -239,7 +239,7 @@ export default class Main extends React.Component {
         this.title2 = 'contact'
         this.text0 = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nisi error magnam corrupti excepturi consectetur. Nostrum velit exercitationem quasi suscipit incidunt eaque pariatur mollitia. Esse tempora saepe blanditiis autem nam.'
         this.text1 = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nisi error magnam corrupti excepturi '
-        this.text2 = 'my contacts'
+        this.text2 = 'my contacts. Tempore nisi error magnam corrupti excepturi'
 
         return (
             <>
