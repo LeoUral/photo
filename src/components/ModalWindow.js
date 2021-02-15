@@ -4,9 +4,6 @@ import React from 'react';
 export default class ModalWindow extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            url: ''
-        }
 
         this.handleClose = this.handleClose.bind(this);
         this.handleStepLeft = this.handleStepLeft.bind(this);

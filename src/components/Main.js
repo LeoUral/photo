@@ -270,7 +270,7 @@ export default class Main extends React.Component {
 
                             </div>
                             <div className="main__left_three one_width">
-                                {i === 0 ? this.viewerBlockOne : i === 1 ? <Comments /> : <Contact />}
+                                {i === 0 ? this.viewerBlockOne : i === 1 ? '' : ''}
                             </div>
                         </div>
                         <footer className="footer"></footer>
@@ -281,7 +281,7 @@ export default class Main extends React.Component {
                                 {i === 2 ? <Contact /> : i === 1 ? <Comments /> : this.viewerBlockTwo.length > 0 ? this.viewerBlockTwo : <WaitLoading />}
                             </div>
                             <div className="main__right_two one_width" style={{ height: `${heightNew2}` }}>
-                                {i === 0 ? this.viewerBlockThree : i === 1 ? <Comments /> : <Contact />}
+                                {i === 0 ? this.viewerBlockThree : i === 1 ? '' : ''}
                             </div>
                         </div>
                         <footer className="footer"></footer>

@@ -15,7 +15,7 @@ export default class Comments extends React.Component {
         const widthTwo = '299px';
         const heightOne = '149px';
         const heightTwo = '299px';
-        const text = 'Коментарии от клиентов'
+        // const text = 'Коментарии от клиентов'
 
 
         return (
@@ -23,9 +23,33 @@ export default class Comments extends React.Component {
                 <section>
                     <div>
                         <Preview
-                            width={widthOne}
+                            width={widthTwo}
                             height={heightOne}
-                            text={text}
+                            text={'Коментарий - 1'}
+                            gallary={'comments'}
+                            url={Image_1}
+                            onGetNumberGallary={this.getNumberGallary}
+                        />
+                        <Preview
+                            width={widthTwo}
+                            height={heightOne}
+                            text={'Коментарий - 2'}
+                            gallary={'comments'}
+                            url={Image_1}
+                            onGetNumberGallary={this.getNumberGallary}
+                        />
+                        <Preview
+                            width={widthTwo}
+                            height={heightOne}
+                            text={'Коментарий - 3'}
+                            gallary={'comments'}
+                            url={Image_1}
+                            onGetNumberGallary={this.getNumberGallary}
+                        />
+                        <Preview
+                            width={widthTwo}
+                            height={heightOne}
+                            text={'Коментарий - 4'}
                             gallary={'comments'}
                             url={Image_1}
                             onGetNumberGallary={this.getNumberGallary}

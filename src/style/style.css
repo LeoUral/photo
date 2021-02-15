@@ -23,6 +23,7 @@ body {
 }
 
 .preview {
+  position: relative;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -34,6 +35,7 @@ body {
   cursor: pointer;
   -webkit-animation: demonstration 2s;
           animation: demonstration 2s;
+  z-index: 10;
 }
 
 .preview:hover {

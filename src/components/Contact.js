@@ -22,9 +22,25 @@ export default class Contact extends React.Component {
                 <section>
                     <div>
                         <Preview
-                            width={widthOne}
-                            height={heightTwo}
-                            text={text}
+                            width={widthTwo}
+                            height={heightOne}
+                            text={'Контакты там...'}
+                            gallary={'contact'}
+                            url={Image_2}
+                            onGetNumberGallary={this.getNumberGallary}
+                        />
+                        <Preview
+                            width={widthTwo}
+                            height={heightOne}
+                            text={'Контакты сям...'}
+                            gallary={'contact'}
+                            url={Image_2}
+                            onGetNumberGallary={this.getNumberGallary}
+                        />
+                        <Preview
+                            width={widthTwo}
+                            height={heightOne}
+                            text={'Контакты вообще...'}
                             gallary={'contact'}
                             url={Image_2}
                             onGetNumberGallary={this.getNumberGallary}
