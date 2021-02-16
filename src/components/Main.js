@@ -5,6 +5,7 @@ import SearchImage from './searchImage';
 import WaitLoading from './WaitLoading';
 import Comments from './Comments';
 import Contact from './Contact';
+import ModalComments from './ModalComments';
 
 
 //пока основной компонент с мешаниной, позже разделю на компоненты
@@ -15,8 +16,10 @@ export default class Main extends React.Component {
             foto: [], // массив с количеством галерей и фото в них  
             gallary: [], //выбранная галерея с фото
             show: false,
+            visual: false,
             numberFoto: 0, //номер текущего фото при просмотре
-            linkPosition: 0 //позиция ссылки
+            linkPosition: 0, //позиция ссылки
+            comment: '' //текущий коментарий для просмотра
         }
 
         this.buildView = this.buildView.bind(this);
@@ -28,6 +31,8 @@ export default class Main extends React.Component {
         this.handleChangeLink = this.handleChangeLink.bind(this);
         this.viewChangeLink = this.viewChangeLink.bind(this);
         this.handleOneButton = this.handleOneButton.bind(this);
+        this.doChangeComment = this.doChangeComment.bind(this);
+        this.doChangeVisual = this.doChangeVisual.bind(this);
     }
 
     // получаем данные о количестве фотографий в галереях
@@ -72,6 +77,11 @@ export default class Main extends React.Component {
             show: false
         })
     }
+    doChangeVisual() {
+        this.setState({
+            visual: false
+        })
+    }
 
     doStepLeft() {
         if (this.state.numberFoto > 0) {
@@ -89,6 +99,13 @@ export default class Main extends React.Component {
             })
         }
         console.log('right');//test
+    }
+
+    doChangeComment(number) {
+        this.setState({
+            comments: number,
+            visual: true
+        })
     }
 
     handleChangeLink(e) {
@@ -252,6 +269,10 @@ export default class Main extends React.Component {
                         onStepLeft={this.doStepLeft}
                         onStepRight={this.doStepRight}
                     />
+                    <ModalComments
+                        onChangeVisual={this.doChangeVisual}
+                        visual={this.state.visual}
+                    />
                     <section className="main__left">
                         <div className="left_block">
                             <div className="main__left_one one_width">
@@ -278,7 +299,9 @@ export default class Main extends React.Component {
                     <section className="main__right">
                         <div className="right_block">
                             <div className="main__right_one two_width" style={{ height: `${heightNew}` }}>
-                                {i === 2 ? <Contact /> : i === 1 ? <Comments /> : this.viewerBlockTwo.length > 0 ? this.viewerBlockTwo : <WaitLoading />}
+                                {i === 2 ? <Contact /> : i === 1 ? <Comments
+                                    onChangeComment={this.doChangeComment}
+                                /> : this.viewerBlockTwo.length > 0 ? this.viewerBlockTwo : <WaitLoading />}
                             </div>
                             <div className="main__right_two one_width" style={{ height: `${heightNew2}` }}>
                                 {i === 0 ? this.viewerBlockThree : i === 1 ? '' : ''}

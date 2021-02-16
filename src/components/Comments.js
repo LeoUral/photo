@@ -4,16 +4,22 @@ import Image_1 from '../image/image_1.jpg';
 
 // компонент с коментариями вместо фотографий
 export default class Comments extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.getNumberGallary = this.getNumberGallary.bind(this);
+    }
 
     getNumberGallary(number) {
         console.log('click -> ' + number);
+        this.props.onChangeComment(number);
     }
 
     render() {
 
         const widthOne = '149px';
         const widthTwo = '299px';
-        const heightOne = '149px';
+        const heightOne = '74px'; //149px
         const heightTwo = '299px';
         // const text = 'Коментарии от клиентов'
 
@@ -26,7 +32,7 @@ export default class Comments extends React.Component {
                             width={widthTwo}
                             height={heightOne}
                             text={'Коментарий - 1'}
-                            gallary={'comments'}
+                            gallary={'comments0'}
                             url={Image_1}
                             onGetNumberGallary={this.getNumberGallary}
                         />
@@ -34,7 +40,7 @@ export default class Comments extends React.Component {
                             width={widthTwo}
                             height={heightOne}
                             text={'Коментарий - 2'}
-                            gallary={'comments'}
+                            gallary={'comments1'}
                             url={Image_1}
                             onGetNumberGallary={this.getNumberGallary}
                         />
@@ -42,7 +48,7 @@ export default class Comments extends React.Component {
                             width={widthTwo}
                             height={heightOne}
                             text={'Коментарий - 3'}
-                            gallary={'comments'}
+                            gallary={'comments2'}
                             url={Image_1}
                             onGetNumberGallary={this.getNumberGallary}
                         />
@@ -50,7 +56,7 @@ export default class Comments extends React.Component {
                             width={widthTwo}
                             height={heightOne}
                             text={'Коментарий - 4'}
-                            gallary={'comments'}
+                            gallary={'comments3'}
                             url={Image_1}
                             onGetNumberGallary={this.getNumberGallary}
                         />
