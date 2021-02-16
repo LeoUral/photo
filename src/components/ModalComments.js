@@ -1,5 +1,10 @@
 import React from 'react';
 
+
+/**
+ * Модальное окно выводящее комментарии на экран
+ * TODO брать комментарии из массива согласно выбранного
+ */
 export default class ModalComments extends React.Component {
     constructor(props) {
         super(props);

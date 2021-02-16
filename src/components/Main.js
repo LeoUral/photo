@@ -8,7 +8,11 @@ import Contact from './Contact';
 import ModalComments from './ModalComments';
 
 
-//пока основной компонент с мешаниной, позже разделю на компоненты
+/**
+ * пока основной компонент с мешаниной, позже разделю на компоненты
+ * TODO рассмотреть возможность разобрать данный компонент на простые
+ * TODO по возможности для MVC-паттерна
+ *  */
 export default class Main extends React.Component {
     constructor(props) {
         super(props);
@@ -48,6 +52,7 @@ export default class Main extends React.Component {
 
     }
 
+    //определяем количество галлерей и меняем высоту блока
     changeHeightView(data) {
         this.heightNew = '300px';
         this.heightNew2 = '300px';
@@ -77,11 +82,6 @@ export default class Main extends React.Component {
             show: false
         })
     }
-    doChangeVisual() {
-        this.setState({
-            visual: false
-        })
-    }
 
     doStepLeft() {
         if (this.state.numberFoto > 0) {
@@ -99,6 +99,12 @@ export default class Main extends React.Component {
             })
         }
         console.log('right');//test
+    }
+
+    doChangeVisual() {
+        this.setState({
+            visual: false
+        })
     }
 
     doChangeComment(number) {
@@ -141,7 +147,7 @@ export default class Main extends React.Component {
         pos[event].classList.add('active-link');
     }
 
-
+    // TODO основной претендент на перемещение в отдельный компонент
     buildView(data) {
 
         this.viewerBlockOne = [];
@@ -299,9 +305,11 @@ export default class Main extends React.Component {
                     <section className="main__right">
                         <div className="right_block">
                             <div className="main__right_one two_width" style={{ height: `${heightNew}` }}>
-                                {i === 2 ? <Contact /> : i === 1 ? <Comments
-                                    onChangeComment={this.doChangeComment}
-                                /> : this.viewerBlockTwo.length > 0 ? this.viewerBlockTwo : <WaitLoading />}
+                                {i === 2 ? <Contact /> : i === 1 ?
+                                    <Comments
+                                        onChangeComment={this.doChangeComment}
+                                    />
+                                    : this.viewerBlockTwo.length > 0 ? this.viewerBlockTwo : <WaitLoading />}
                             </div>
                             <div className="main__right_two one_width" style={{ height: `${heightNew2}` }}>
                                 {i === 0 ? this.viewerBlockThree : i === 1 ? '' : ''}

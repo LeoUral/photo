@@ -2,7 +2,12 @@ import React from 'react';
 import Preview from './Preview';
 import Image_1 from '../image/image_1.jpg';
 
-// компонент с коментариями вместо фотографий
+/** компонент с коментариями вместо фотографий
+ * Выводит в модальное окно комментарии расположенные на основном 
+ * экране
+ * TODO организовать вывод комментариев из массива
+ * TODO компанент PREVIEW поместить в цикл с перебором массива
+ * */
 export default class Comments extends React.Component {
     constructor(props) {
         super(props);
@@ -11,16 +16,16 @@ export default class Comments extends React.Component {
     }
 
     getNumberGallary(number) {
-        console.log('click -> ' + number);
+        console.log('click -> ' + number);// test
         this.props.onChangeComment(number);
     }
 
     render() {
 
-        const widthOne = '149px';
+        // const widthOne = '149px';
         const widthTwo = '299px';
         const heightOne = '74px'; //149px
-        const heightTwo = '299px';
+        // const heightTwo = '299px';
         // const text = 'Коментарии от клиентов'
 
 
