@@ -49,7 +49,6 @@ export default class Main extends React.Component {
             .then(
                 result => this.setState({ foto: result }) //get SearchImage.arrGallary  
             )
-
     }
 
     //определяем количество галлерей и меняем высоту блока

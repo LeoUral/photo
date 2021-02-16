@@ -163,11 +163,6 @@ body {
     flex-wrap: wrap;
 }
 
-.footer {
-    width: 100%;
-    height: 100px;
-}
-
 .modal {
     &__shadow {
         position: fixed;
@@ -283,4 +278,9 @@ body {
     color: #fff;
     font-size: 40px;
     animation: demonstration 1s;
+}
+
+.footer {
+    width: 100%;
+    height: 100px;
 }

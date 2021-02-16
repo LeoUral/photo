@@ -11,10 +11,10 @@ export default class Contact extends React.Component {
 
     render() {
 
-        const widthOne = '149px';
+        // const widthOne = '149px';
         const widthTwo = '299px';
-        const heightOne = '149px';
-        const heightTwo = '299px';
+        const heightOne = '74px';//149px
+        // const heightTwo = '299px';
         const text = 'Контакты, ссылки, телефоны'
 
         return (
@@ -25,7 +25,7 @@ export default class Contact extends React.Component {
                             width={widthTwo}
                             height={heightOne}
                             text={'Контакты там...'}
-                            gallary={'contact'}
+                            gallary={'contact0'}
                             url={Image_2}
                             onGetNumberGallary={this.getNumberGallary}
                         />
@@ -33,7 +33,7 @@ export default class Contact extends React.Component {
                             width={widthTwo}
                             height={heightOne}
                             text={'Контакты сям...'}
-                            gallary={'contact'}
+                            gallary={'contact1'}
                             url={Image_2}
                             onGetNumberGallary={this.getNumberGallary}
                         />
@@ -41,7 +41,7 @@ export default class Contact extends React.Component {
                             width={widthTwo}
                             height={heightOne}
                             text={'Контакты вообще...'}
-                            gallary={'contact'}
+                            gallary={'contact2'}
                             url={Image_2}
                             onGetNumberGallary={this.getNumberGallary}
                         />
