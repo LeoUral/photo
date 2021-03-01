@@ -73,7 +73,7 @@ export default class Main extends React.Component {
             show: true,
             numberFoto: 0
         })
-        console.log(gallary + ' < in MAIN'); //test            
+        // console.log(gallary + ' < in MAIN'); //test            
     }
 
     changeShow() {
@@ -88,7 +88,7 @@ export default class Main extends React.Component {
                 numberFoto: this.state.numberFoto - 1
             })
         }
-        console.log('left');//test
+        // console.log('left');//test
     }
 
     doStepRight() {
@@ -97,7 +97,7 @@ export default class Main extends React.Component {
                 numberFoto: this.state.numberFoto + 1
             })
         }
-        console.log('right');//test
+        // console.log('right');//test
     }
 
     doChangeVisual() {
@@ -119,9 +119,9 @@ export default class Main extends React.Component {
         this.setState({
             linkPosition: event
         })
-        setTimeout(() => {
-            console.log(this.state.linkPosition + ' < POSITION');
-        })
+        // setTimeout(() => {
+        //     console.log(this.state.linkPosition + ' < POSITION');//test
+        // })
     }
 
     handleOneButton() {

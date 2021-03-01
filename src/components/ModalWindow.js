@@ -29,7 +29,7 @@ export default class ModalWindow extends React.Component {
         const j = this.props.numberImage;
         const url = `../image/gal_${i}/img_${j}.jpg`
         const show = this.props.show;
-        console.log(this.props.show + ' <<< >>> ' + this.props.numberGallary + ' --- ' + this.props.numberImage); //test
+        // console.log(this.props.show + ' <<< >>> ' + this.props.numberGallary + ' --- ' + this.props.numberImage); //test
 
         return (
             <>

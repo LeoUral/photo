@@ -10,9 +10,9 @@ export default class Preview extends React.Component {
 
 
     handleClickPreview(e) {
-        console.log(e.target.dataset.gallary + ' < in PREVIEW '); // test
+        // console.log(e.target.dataset.gallary + ' < in PREVIEW '); // test
         let gallary = e.target.dataset.gallary.split(',');
-        console.log(gallary);
+        // console.log(gallary);//test 
         this.props.onGetNumberGallary(gallary);
     }
 
