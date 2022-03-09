@@ -7,7 +7,7 @@
 
 class SearchImage {
     constructor() {
-        this.size = 1798;
+        this.size = 1841; // 1798
         this.arrGallary = [];
     }
 
@@ -28,22 +28,23 @@ class SearchImage {
                 let response = await fetch(`../image/gal_${numberGal}/img_${quantity}.jpg`);
                 let blob = await response.blob();
 
-                // console.log(blob.size); // test
+                // console.log(`BLOB >>>`, blob.size); // test
                 if (blob.size > this.size) {
                     ++quantity;
                     numberFalse = 0;
                 } else {
                     ++numberFalse;
                     result = false;
+                    console.log(`numberFalse ::: `, numberFalse); // test
                 }
-            }// first WHILE - end
+            } // first WHILE - end
 
             if (numberFalse >= 2) {
                 result2 = false;
                 // console.log(this.arrGallary + ' < RESULT RUN SEARCH GALLARY end IMAGE'); // test                
             } else {
                 this.arrGallary = [...this.arrGallary, [numberGal, quantity]];
-                // console.log(numberGal + ' <== GALLARY ' + quantity + ' <== IMAGE in gallary');// test                
+                // console.log(numberGal + ' <== GALLARY ' + quantity + ' <== IMAGE in gallary'); // test                
                 ++numberGal;
             }
         } // second WHILE end
